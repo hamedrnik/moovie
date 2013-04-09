@@ -1,0 +1,16 @@
+<form class="form-search">
+  <input type="text" class="input-medium search-query" placeholder="Type a name of movie">
+  <button type="submit" class="btn">Search</button>
+</form>
+
+<ul class="thumbnails">
+<% for movie in @movies.models: %>
+  <li class="span4 text-center">
+    <div class="thumbnail">
+      <img src="<%= movie.get('poster') %>" alt="<%= movie.get('title') %>">
+      <h3><%= movie.get('title') %></h3>
+      <p><%= movie.get('plot') %></p>
+    </div>
+  </li>
+<% end %>
+</ul>
