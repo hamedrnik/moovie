@@ -3,13 +3,15 @@ class Moovie.Views.MoviesIndex extends Backbone.View
 
   events:
     "submit #new_movie": "createMovie"
+    "click #select_movie": "selectMovie"
 
   initialize: ->
     @collection.bind 'reset', @render, this
-    @collection.bind "add", @render, this
+    @collection.bind "add", @appendMovie, this
 
   render: ->
-    $(@el).html(@template(movies: @collection))
+    $(@el).html(@template())
+    @collection.each(@appendMovie)
     this
 
   createMovie: (event) ->
@@ -20,10 +22,20 @@ class Moovie.Views.MoviesIndex extends Backbone.View
       success: -> $("#new_movie")[0].reset()
       error: @handleError
 
-  appendMovie: (movie) =>
+  selectMovie: (event) ->
+    event.preventDefault()
+    @collection.selectMovie()
+
+  appendMovie: (movie) ->
     view = new Moovie.Views.Movie(model: movie)
-    @$("#movies").append(view.render().el)
+    $("#movies").append(view.render().el)
 
   handleError: (movie, response) ->
+    if response.status == 500
+      alert "Something goes wrong, we'll back soon"
     if response.status == 404
       alert "We couldn't find your movie!"
+    if response.status == 422
+      errors = $.parseJSON(response.responseText).errors
+      for attribute, messages of errors
+        alert "#{attribute} #{message}" for message in messages

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409184815) do
+ActiveRecord::Schema.define(:version => 20130410083314) do
 
   create_table "movies", :force => true do |t|
     t.string   "title"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20130409184815) do
     t.text     "plot",       :limit => 255
     t.string   "poster"
     t.integer  "votes"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.boolean  "selected",                  :default => false
+    t.string   "tmdb_url"
   end
 
 end

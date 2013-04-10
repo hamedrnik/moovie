@@ -1,0 +1,13 @@
+<% if @movie.get("selected"): %>
+  <div class="thumbnail selected">
+<% else: %>
+  <div class="thumbnail">
+<% end %>
+  <img src="<%= @movie.get('poster') %>" alt="<%= @movie.get('title') %>">
+  <h4>
+    <a href="<%= @movie.get('tmdb_url') %>" target="_blank">
+      <%= @movie.get('title').substring(0, 15) %>/<%= @movie.get('rating') %>
+    </a>
+  </h4>
+  <p><%= @movie.get('plot').substring(0, 120) %></p>
+</div>

@@ -1,16 +1,16 @@
-<form class="form-search" id="new_movie">
-  <input type="text" class="input-medium search-query" name="title" id="new_movie_title" placeholder="Type a name of movie">
-  <button type="submit" class="btn">Add</button>
-</form>
+<div class="row">
+  <div class="span4">
+    <form class="form-search" id="new_movie">
+      <div class="input-append">
+        <input type="text" class="search-query span3" name="title" id="new_movie_title" placeholder="Type a name of movie">
+        <button type="submit" class="btn">Add</button>
+      </div>
+    </form>
+  </div>
+  <div class="span4">
+    <button class="btn btn-success" id="select_movie">Select a movie</button>
+  </div>
+</div>
 
-<ul class="thumbnails text-center" id="movies">
-<% for movie in @movies.models: %>
-  <li class="span4">
-    <div class="thumbnail">
-      <img src="<%= movie.get('poster') %>" alt="<%= movie.get('title') %>">
-      <h4><%= movie.get('title').substring(0, 15) %>/<%= movie.get('rating') %></h4>
-      <p><%= movie.get('plot').substring(0, 120) %></p>
-    </div>
-  </li>
-<% end %>
-</ul>
+
+<ul class="thumbnails text-center" id="movies"></ul>
