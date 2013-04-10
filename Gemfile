@@ -43,3 +43,13 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 gem 'ruby-tmdb'
+
+# for maintenance page in capistrano
+gem "capistrano-maintenance"
+
+# Deploy with Capistrano
+gem 'capistrano'
+
+group :production do
+  gem 'mysql2'
+end
