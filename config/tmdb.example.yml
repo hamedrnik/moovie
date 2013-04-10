@@ -1,0 +1,9 @@
+development:
+  api_key: "Your Key"
+  language: "en"
+test:
+  api_key: "Your Key"
+  language: "en"
+production:
+  api_key: "Your Key"
+  language: "en"

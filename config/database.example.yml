@@ -25,6 +25,6 @@ production:
   reconnect: false
   database: moovie_production
   username: moovie_user
-  password: ZDkwOGRiMjIyYmJjN2ZkZDEwMTg4ZTBkODU1OTljZDcK
+  password: moovie_password
   pool: 5
   timeout: 5000

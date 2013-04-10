@@ -1,5 +1,7 @@
+tmdb_config = YAML.load(File.read(Rails.root.join('config', 'tmdb.yml')))[Rails.env]
+
 # setup your API key
-Tmdb.api_key = "9f88d351e876568ecc989737bf43baa6"
+Tmdb.api_key = tmdb_config["api_key"]
 
 # setup your default language
-Tmdb.default_language = "en"
+Tmdb.default_language = tmdb_config["language"]
